@@ -1,0 +1,21 @@
+{
+	"name": "Node.js 12.2.0",
+	"dockerFile": "Dockerfile",
+	// "extensions": [
+	// 	"dbaeumer.vscode-eslint"
+	// ],
+
+	// Uncomment the next line if you want to publish any ports.
+	// "appPort": [],
+
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "cd src && yarn install"
+
+}
+// {
+//     "name": "[Optional] Docker Compose",
+//     "dockerComposeFile": "../docker-compose.yml",
+//     "service": "nodejs-backend",
+//     "workspaceFolder": "/usr/src/app",
+//     "shutdownAction": "stopCompose"
+// }

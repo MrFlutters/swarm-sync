@@ -1,8 +1,5 @@
 swarm-sync:
 
-  # Cache dir
-
-
   # Stacks in target for this swarm-sync instance
   stacks:
     - nonprod
@@ -13,12 +10,8 @@ swarm-sync:
 
   # Git details for your Swarm Configuration Repository
   git:
-    url: https://github.com/kevb/swarm-sync-example
+    url: https://github.com/mrflutters/swarm-sync-example
     branch: master
-
-  # Swarm-sync can run git-crypt to decrypt your repo with a symmetric key
-  #git_crypt:
-  #  keyFile: /run/secrets/git-crypt-key
 
   # Common config with swarm-pack
   docker:
