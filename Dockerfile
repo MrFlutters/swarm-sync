@@ -1,4 +1,18 @@
-FROM node:12-slim
+FROM node:12-slim as PREP
+
+WORKDIR /opt
+
+RUN apt-get update && apt-get install -y git procps build-essential python
+
+COPY package.json /opt/package.json
+COPY package-lock.json /opt/package-lock.json
+
+RUN npm install --production
+
+FROM node:12-slim as APP
+
+COPY --from=PREP /opt/node_modules /opt/node_modules
+
 # set app port
 ENV PORT 80
 # Location of Swarm sync configuration file
@@ -29,8 +43,9 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
 COPY known_hosts /root/.ssh/known_hosts
 COPY . .
 
-RUN npm install --production && \
-    chmod +x ./start.sh && \
+RUN mkdir -p /run/swarm-sync/
+
+RUN chmod +x ./start.sh && \
     chmod +x ./env_secrets_expand.sh
 
 # expose port
